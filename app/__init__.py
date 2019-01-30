@@ -17,19 +17,20 @@ bootstrap=Bootstrap()
 Base = declarative_base(cls=RepresentableBase)
 # Session = sessionmaker()
 import urllib
-params = urllib.parse.quote_plus('DRIVER={SQL Server};SERVER=LAPTOP-LRI3PN7A;DATABASE=PBL_project5;UID=wojte;PWD=Wojtek6237;Trusted_Connection=yes;')
-SQLALCHEMY_DATABASE_URI="mssql+pyodbc:///?odbc_connect=%s" % params
-ok=engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
-db_session=scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=ok))
-
+# params = urllib.parse.quote_plus('DRIVER={SQL Server};SERVER=LAPTOP-ddLRI3PN7A;DATABASE=PBL_project5;UID=wojte;PWD=Wojtek6237;Trusted_Connection=yes;')
+# SQLALCHEMY_DATABASE_URI="mssql+pyodbc:///?odbc_connect=%s" % params
+# ok=engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
+# db_session=scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=ok))
+db_session=2
+ok=2
 
 def create_app(config_file):
     app = Flask(__name__)
     configuration=os.path.join(os.getcwd(),'config',config_file+'.py')
-    app.config.from_pyfile(configuration)
-    Base = declarative_base(cls=RepresentableBase)
-    Base.query = db_session.query_property()
-    Base.metadata.create_all(bind=engine)
+    # app.config.from_pyfile(configuration)
+    # Base = declarative_base(cls=RepresentableBase)
+    # Base.query = db_session.query_property()
+    # Base.metadata.create_all(bind=engine)
     bootstrap.init_app(app)
     #strona glowna
     from app.zamow import main
