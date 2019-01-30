@@ -17,7 +17,6 @@ bootstrap=Bootstrap()
 Base = declarative_base(cls=RepresentableBase)
 # Session = sessionmaker()
 import urllib
-# params = urllib.parse.quote_plus('DRIVER={SQL Server};SERVER=LAPTOP-ddLRI3PN7A;DATABASE=PBL_project5;UID=wojte;PWD=Wojtek6237;Trusted_Connection=yes;')
 # SQLALCHEMY_DATABASE_URI="mssql+pyodbc:///?odbc_connect=%s" % params
 # ok=engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
 # db_session=scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=ok))
