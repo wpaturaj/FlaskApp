@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<p><p><p><p>
+  <div class="row">
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="/static/img/zamow.jpg" alt="Generic placeholder image" width="140" height="140">
+      <h2>Dodaj zamowienie!</h2>
+      <p style="min-height:48px">Zamów produkty kompletując zamówienie po wciśnięciu przycisku poniżej.</p>
+      <p><a class="btn btn-secondary" href="dodaj" role="button">Dodaj do koszyka »</a></p>
+    </div>
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="/static/img/flota.jpg" alt="Generic placeholder image" width="140" height="140">
+      <h2>Dodaj flote!</h2>
+      <p style="min-height:48px">Dodaj auto wciskajac przycisk ponizej.</p>
+      <p><a class="btn btn-secondary" href="flota" role="button">Dodaj auto »</a></p>
+    </div>
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="/static/img/firma.jpg" alt="Generic placeholder image" width="140" height="140">
+      <h2>Firma</h2>
+      <p style="min-height:48px">Organizuj podroz aut, wciskajac ponizszy przycisk.</p>
+      <p><a class="btn btn-secondary" href="firma" role="button">Firma »</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block body %}
+ {{super()}}
+ {% endblock %}

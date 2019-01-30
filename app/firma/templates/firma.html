@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<p>
+<form method = "POST" action="organizuj">
+  <div class="card mb-4 box-shadow" style="width: 22rem; margin:0 auto;">
+    <div class="card-header" align="center">
+      <h4 class="my-0 font-weight-normal">Firma</h4>
+    </div>
+    <div align="center">
+      Organizuj podroz aut, wciskajac ponizszy przycisk.<br>
+      <h6>Dzisiejsza data</h6> <p>
+        <input type="date" name="start_firma_dt"
+         value="2019-03-21"
+         min="2019-01-15" max="2021-12-31"><br>
+      <p><p><p>
+      <p><input id="btnSignUp" class="btn btn-lg btn-primary" type="submit" value="Firma"></p>
+      <p>
+    </div>
+  </div>
+</form>
+<div align="center">
+    <h2>{{ lista[0] }}</h2>
+</div>
+<h3> {{ lista[1] }}</h3>
+ <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Id zamowienia</th>
+                        <th scope="col">Data dostarczenia</th>
+                        <th scope="col">Id Samochodu </th>
+                        <th scope="col">Nazwa klienta</th>
+                    </tr>
+                </thead>
+                <tbody>
+              {% for flight in przydzielone %}
+                    <tr>
+                        <th scope="row">{{ flight.id_zam }}</th>
+                        <td> {{ flight.data_dostarczenia }} </td>
+                        <td> {{ flight.id_samochodu }} </td>
+                        <td> {{ flight.nazwa }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+
+<h3> {{ lista[3] }}</h3>
+ <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Id zamowienia</th>
+                        <th scope="col">Nazwa klienta</th>
+                    </tr>
+                </thead>
+                <tbody>
+              {% for flight in odrzucone %}
+                    <tr>
+                        <th scope="row">{{ flight.id_zam }}</th>
+                        <td> {{ flight.nazwa }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+<script>
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var today = year + "-" + month + "-" + day;       
+    document.getElementById("datePicker").value = today
+</script>
+{% endblock %}
+
+{% block body %}
+ {{super()}}
+ {% endblock %}

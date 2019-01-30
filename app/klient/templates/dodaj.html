@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<p><p>
+  <div class="transakcje">
+
+    <form method = "POST" action="produkt">
+      Nazwa Firmy <br>
+        <select name="comp_select" class="selectpicker form-control" style="width:300px;">
+          {% for i in firmy %}
+            <option value="{{ i.nazwa }}">{{ i.nazwa }}</option>
+          {% endfor %}
+        </select>
+
+      Kategoria <br>
+        <select name="kat_select" class="selectpicker form-control" style="width:300px;" onchange="getComboA(this)">
+          {% for i in kategorie %}
+            <option value="{{ i.kategoria }}">{{ i.kategoria }}</option>
+          {% endfor %}
+        </select>
+      Produkt <br>
+        <select id="prods_select" name="prod_sel" class="selectpicker form-control" style="width:300px;">
+        </select>
+      Ilość <br>
+      <input type="number" min="1" step="1" value="1" name="produkt1"><br>
+      Dzisiejsza data <br>
+      <input type="date" name="start_t"
+       value="2019-03-21"
+       min="2019-01-15" max="2021-12-31"><br>
+<!-- ?id='datePicker' -->
+      <p><input id="btnSignUp" class="btn btn-lg btn-success" type="submit" value="Dodaj"></p>
+
+    </form>
+  </div>
+ <h3> Obecne zamowienia</h3>
+ <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Id zamowienia</th>
+                        <th scope="col">Klient</th>
+                        <th scope="col">Towar </th>
+                        <th scope="col">Ilosc</th>
+                    </tr>
+                </thead>
+                <tbody>
+              {% for flight in zam_tow %}
+                    <tr>
+                        <th scope="row">{{ flight.id_zam }}</th>
+                        <td> {{ flight.id_klienta }} </td>
+                        <td> {{ flight.nazwa }} </td>
+                        <td> {{ flight.ilosc_towaru }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+
+  <script>
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var today = year + "-" + month + "-" + day;       
+    document.getElementById("datePicker").value = today;
+
+    function getComboA(selectObject) {
+    document.getElementById("prods_select").innerHTML = "";
+    var value = selectObject.value; 
+    fetch('/kategoria/'+value).then(function(response){
+      response.json().then(function(data){
+        var select = document.getElementById("prods_select");
+        for( let x of data.firmy){
+             select.options[select.options.length] = new Option(x.nazwa,x.nazwa);
+          }
+      })
+    });
+  }
+  </script>
+{% endblock %}
+
+{% block body %}
+ {{super()}}
+ {% endblock %}

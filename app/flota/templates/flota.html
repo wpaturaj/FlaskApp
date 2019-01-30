@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<form method = "POST" action="dodajAuto">
+	<div class="card mb-4 box-shadow" style="width: 22rem;">
+	  <div class="card-header" align="center">
+	    <h4 class="my-0 font-weight-normal">Flota</h4>
+	  </div>
+	  <div align="center">
+	  	Numer Zamowienia <br>
+        <select name="zam_select" class="selectpicker form-control" style="width:300px;">
+        	<option value="-">-</option>
+          {% for i in nr_zamowienia %}
+            <option value="{{ i.id_zam }}">{{ i.id_zam }}</option>
+          {% endfor %}
+        </select><p>
+	  	Ładowność auta <br>
+	    <input class="center-block" type="number" min="10" step="10" value="10" name="auto_lad"><p>
+	   	Czas dojazdu w dniach <br>
+	    <input class="center-block" type="number" min="1" step="1" value="1" name="days_nb">
+	    <p>
+	    <p>
+	    <p>
+	    <p><input id="btnSignUp" class="btn btn-lg btn-primary" type="submit" value="Dodaj Auto"></p>
+	    <p>
+	  </div>
+	</div>
+</form>
+<font size="3" color="red">Brakuje pojemności : {{obecnie_brakuje}}</font>
+<p>
+<p>
+
+<h3> Odrzucone </h3>
+ <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Id zamowienia</th>
+                        <th scope="col">Nazwa klienta</th>
+                    </tr>
+                </thead>
+                <tbody>
+              {% for flight in odrzucone %}
+                    <tr>
+                        <th scope="row">{{ flight.id_zam }}</th>
+                        <td> {{ flight.nazwa }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+<h3> Samochody </h3>
+ <div class="table-responsive">
+            <table class="table" id="flights">
+                <thead>
+                    <tr>
+                        <th scope="col">Id samochody</th>
+                        <th scope="col">Pojemnosc</th>
+                        <th scope="col">Status </th>
+                        <th scope="col">Wolne miejsce</th>
+                        <th scope="col">Data powrotu</th>
+                    </tr>
+                </thead>
+                <tbody>
+              {% for flight in samochody %}
+                    <tr>
+                        <th scope="row">{{ flight.id_samochodu }}</th>
+                        <td> {{ flight.pojemnosc }} </td>
+                        <td> {{ flight.status }} </td>
+                        <td> {{ flight.wolne_miejsce }} </td>
+                        <td> {{ flight.data_powrotu }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+</div>
+{% endblock %}
+
+{% block body %}
+ {{super()}}
+  <link href="/static/css/styles.css"type="text/css" rel="stylesheet"/> 
+ {% endblock %}
