@@ -15,9 +15,6 @@ backports.shutil-get-terminal-size==1.0.0
 beautifulsoup4==4.6.3
 bitarray==0.8.3
 bkcharts==0.2
-blaze==0.11.3
-bleach==2.1.4
-bokeh==0.13.0
 boto==2.49.0
 Bottleneck==1.2.1
 certifi==2018.10.15
@@ -33,8 +30,6 @@ comtypes==1.1.7
 constantly==15.1.0
 contextlib2==0.5.5
 cryptography==2.3.1
-cycler==0.10.0
-Cython==0.28.5
 cytoolz==0.9.0.1
 dask==0.19.1
 datashape==0.5.4
@@ -55,7 +50,6 @@ Flask-Jsonpify==1.5.0
 Flask-REST-JSONAPI==0.22.0
 Flask-SQLAlchemy==2.3.2
 gast==0.2.0
-GDAL==2.3.3
 gevent==1.3.6
 glob2==0.6
 greenlet==0.4.15
@@ -79,12 +73,6 @@ jdcal==1.4
 jedi==0.12.1
 Jinja2==2.10
 jsonschema==2.6.0
-jupyter==1.0.0
-jupyter-client==5.2.3
-jupyter-console==5.2.0
-jupyter-core==4.4.0
-jupyterlab==0.34.9
-jupyterlab-launcher==0.13.1
 Keras==2.2.4
 Keras-Applications==1.0.6
 Keras-Preprocessing==1.0.5
