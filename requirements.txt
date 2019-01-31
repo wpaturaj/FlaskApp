@@ -57,11 +57,6 @@ numba==0.39.0
 numexpr==2.6.8
 numpy==1.15.1
 numpydoc==0.8.0
-odo==0.5.1
-olefile==0.46
-opencv-contrib-python==3.4.3.18
-openpyxl==2.5.6
-packaging==17.1
 pandas==0.23.4
 pandocfilters==1.4.2
 pytest==3.8.0
