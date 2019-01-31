@@ -1,5 +1,4 @@
 from app.klient import dodanie
-# from app import db
 from app import db_session
 from app.klient.models import Miasta
 from app.klient.models import Klienci
@@ -9,7 +8,7 @@ from app.klient.models import Zamowienia_Towary
 from flask import render_template
 from flask import request,flash,jsonify
 from datetime import datetime
-from sqlalchemy import and_
+# from sqlalchemy import and_
 
 @dodanie.route('/dodaj')
 def display_all():

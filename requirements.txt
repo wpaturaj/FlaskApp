@@ -26,6 +26,6 @@ scipy==1.1.0
 seaborn==0.9.0
 SQLAlchemy==1.2.11
 sqlalchemy-repr==0.0.1
-pyodbc
+
 
 

@@ -8,10 +8,10 @@ from app.klient.models import Zamowienia_Towary
 from app.klient.models import Zamowienia_Samochody
 from flask import render_template
 from flask import request,flash
-from sqlalchemy import func
+# from sqlalchemy import func
 import datetime as dt
-from sqlalchemy.orm.attributes import flag_modified
-import pyodbc
+# from sqlalchemy.orm.attributes import flag_modified
+# import pyodbc
 
 @flota.route('/dodajAuto',methods=['GET','POST'])
 def display_news():
