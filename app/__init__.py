@@ -35,14 +35,14 @@ def create_app(config_file):
     from app.zamow import main
     app.register_blueprint(main) 
     #dodawanie zamowien
-    from app.klient import dodanie
-    app.register_blueprint(dodanie) 
-    #flota
-    from app.flota import flota
-    app.register_blueprint(flota) 
-    #firma
-    from app.firma import firma
-    app.register_blueprint(firma) 
+    # from app.klient import dodanie
+    # app.register_blueprint(dodanie) 
+    # #flota
+    # from app.flota import flota
+    # app.register_blueprint(flota) 
+    # #firma
+    # from app.firma import firma
+    # app.register_blueprint(firma) 
 
     app.static_folder = 'static'  
     return app
