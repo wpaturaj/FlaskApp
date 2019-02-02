@@ -34,7 +34,7 @@ def create_app(config_file):
     #strona glowna
     from app.zamow import main
     app.register_blueprint(main) 
-    #dodawanie zamowiend 
+    #dodawanie zamowiend  
     # from app.klient import dodanie
     # app.register_blueprint(dodanie) 
     # #flota
