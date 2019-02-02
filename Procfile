@@ -1,1 +1,1 @@
-web: gunicorn run:flask_app -b "0.0.0.0:$PORT" -w 3 --preload 
+web: gunicorn run:flask_app -b "0.0.0.0:$2000" -w 3 --preload 
