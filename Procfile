@@ -1,1 +1,1 @@
-web: gunicorn run:flask_app --log-level debug 
+web: gunicorn run:flask_app --preload 
