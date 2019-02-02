@@ -12,7 +12,8 @@ from sqlalchemy.orm import mapper, sessionmaker
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy_repr import RepresentableBase
 # from database import init_db
-db=SQLAlchemy()
+# db=SQLAlchemy()
+db=2
 bootstrap=Bootstrap()
 Base = declarative_base(cls=RepresentableBase)
 # Session = sessionmaker()
