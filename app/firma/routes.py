@@ -9,14 +9,14 @@ from app.klient.models import Zamowienia_Towary
 from app.klient.models import Zamowienia_Samochody
 from app.klient.models import Samochody
 import pandas as pd
-# import pyodbc
+import pyodbc
 import pandas as pd
 import datetime as dt
 import numpy as np
 import datetime
 from flask import render_template
 from flask import request,flash
-# from sqlalchemy import and_, extract
+from sqlalchemy import and_, extract
 
 @firma.route('/organizuj',methods=['GET','POST'])
 def display_organizuj():

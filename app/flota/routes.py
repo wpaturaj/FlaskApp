@@ -1,4 +1,4 @@
-# from app.flota import flota
+from app.flota import flota
 from app import db_session
 # from app.klient.models import Samochody
 # from app.klient.models import Klienci

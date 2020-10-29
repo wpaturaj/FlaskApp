@@ -5,13 +5,13 @@ from flask import request,flash
 
 from sqlalchemy import extract
 from app import db_session
-# from app.klient.models import Miasta
-# from app.klient.models import Klienci
-# from app.klient.models import Towary
-# from app.klient.models import Zamowienia
-# from app.klient.models import Samochody
-# from app.klient.models import Zamowienia_Towary
-# from app.klient.models import Zamowienia_Samochody
+from app.klient.models import Miasta
+from app.klient.models import Klienci
+from app.klient.models import Towary
+from app.klient.models import Zamowienia
+from app.klient.models import Samochody
+from app.klient.models import Zamowienia_Towary
+from app.klient.models import Zamowienia_Samochody
 from flask_jsonpify import jsonify
 @main.route('/')
 def display_all():
