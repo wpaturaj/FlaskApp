@@ -10,24 +10,24 @@ from sqlalchemy import create_engine, MetaData, Table
 from sqlalchemy.orm import mapper, sessionmaker
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy_repr import RepresentableBase
+import configparser
 # from database import init_db
 db=SQLAlchemy()
 bootstrap=Bootstrap()
 Base = declarative_base(cls=RepresentableBase)
 
+config = configparser.ConfigParser('../config/config.py')
+SQLALCHEMY_DATABASE_URI=config['SQLALCHEMY_DATABASE_URI']
 
-ok=engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
-db_session=scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=ok))
+engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
+db_session=scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=engine))
 Base.query = db_session.query_property()
 Base.metadata.create_all(bind=engine)
 
 def create_app(config_file):
     app = Flask(__name__)
-    app.config.from_pyfile(configuration)
+    # app.config.from_pyfile(configuration)
     db.init_app(app)
-    Base = declarative_base(cls=RepresentableBase)
-    Base.query = db_session.query_property()
-    Base.metadata.create_all(bind=engine)
     bootstrap.init_app(app)
     #strona glowna
     from app.zamow import main

@@ -1,6 +1,5 @@
 from app.firma import firma
 from app import db_session
-from app import ok
 from app.klient.models import Miasta
 from app.klient.models import Klienci
 from app.klient.models import Towary
@@ -21,7 +20,7 @@ from sqlalchemy import and_, extract
 @firma.route('/organizuj',methods=['GET','POST'])
 def display_organizuj():
 	start_dts = request.form["start_firma_dt"]
-	print(start_dts)
+	# print(start_dts)
 	start_dts=datetime.datetime.strptime(start_dts,'%Y-%m-%d')
 
 	# Algorytm
